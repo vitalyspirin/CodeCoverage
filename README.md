@@ -22,3 +22,7 @@ $a = new A();
 
 CodeCoverage::stop();
 ```
+
+### Screenshot
+![screenshot1.png](/docs/screenshot1.png "Code Coverage screenshot")
+ 
