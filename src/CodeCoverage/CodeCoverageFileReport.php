@@ -126,26 +126,30 @@ class CodeCoverageFileReport
   public static function convertTextReportIntoHtml($fullFileName)
   {
     $htmlFileHeader = "
-        <html>
-          <head>
-            <title></title>
-            <style>
-              * { margin: 0; padding: 0;}
-              body {padding-left: 0.5em;}
-              .executedLine {color:green;}
-              .notExecutedLine {color: red;}
-              .uncreachableLine {color: #F68B2A;}
-            </style>
-          </head>
-          <body>
-            <pre>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>$fullFileName</title>
+    <style>
+      * { margin: 0; padding: 0;}
+      body {padding-left: 0.5em;}
+      .lineNumber {color: grey; display: inline-block; width: 2em;}
+      .executedLine {color:green;}
+      .notExecutedLine {color: red;}
+      .uncreachableLine {color: #F68B2A;}
+    </style>
+  </head>
+  <body>
+    <pre>
     ";
     $htmlFileFooter = "
-            </pre>
-          <body>
-        <html>
+    </pre>
+  </body>
+</html>
     ";
     
+    $htmlPrefixForLineNumber = '<span class="lineNumber">';
     $htmlPrefixForExecutedLine = '<span class="executedLine">';
     $htmlPrefixForNotExecutedLine = '<span class="notExecutedLine">';
     $htmlPrefixForUnreachableLine = '<span class="uncreachableLine">';
@@ -175,7 +179,8 @@ class CodeCoverageFileReport
         
         default    :  $htmlPrefix = $htmlPrefixForRegularLine;
       }
-      $htmlFileArray[] = $htmlPrefix . htmlspecialchars( substr($reportFileArray[$i], 2) ) . $htmlSuffix; 
+      $htmlFileArray[] = $htmlPrefixForLineNumber . ($i+1) . $htmlSuffix . " " . $htmlPrefix . 
+        htmlspecialchars( substr($reportFileArray[$i], 2) ) . $htmlSuffix;
     }
     $htmlFileArray[] = $htmlFileFooter;
     
