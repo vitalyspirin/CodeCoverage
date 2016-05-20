@@ -1,0 +1,18 @@
+{
+    "name": "vitalyspirin/codecoverage",
+    "type": "project",
+    "description": "Creating code coverage reports (html) by using xdebug",
+    "keywords": ["code coverage","PHP", "xdebug"],
+    "homepage": "https://github.com/vitalyspirin/codecoverage",
+    "authors": [
+        {
+            "name": "Vitaly Spirin",
+            "email": "vitaly.spirin@gmail.com",
+            "homepage": "https://github.com/vitalyspirin",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
