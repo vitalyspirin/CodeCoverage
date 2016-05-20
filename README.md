@@ -2,9 +2,15 @@
 
 Wrapper classes around xDebug to show code coverage data as html files.
 
+## Installation
+```
+composer require vitalyspirin/codecoverage @dev
+```
 
 ## Quick Start and Examples
 ```php
+use vitalyspirin\codecoverage\CodeCoverage;
+
 $reportDir = 'CodeCoverageReports';  // directory for report files 
 CodeCoverage::start($reportDir);
 
