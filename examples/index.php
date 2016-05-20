@@ -7,6 +7,8 @@ deleteReports($reportDir);
 
 function deleteReports($reportDir)
 {
+  if ( !file_exists($reportDir) ) return;
+  
   $fileList = scandir($reportDir);
   
   $errors = array();

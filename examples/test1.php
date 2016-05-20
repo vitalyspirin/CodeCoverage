@@ -2,7 +2,11 @@
 
 <?php
 
-require_once('../src/CodeCoverage/CodeCoverage.php');
+require_once('../src/CodeCoverage.php');
+
+use vitalyspirin\codecoverage\CodeCoverage;
+
+
 $reportDir = 'CodeCoverageReports';
 
 CodeCoverage::start($reportDir);

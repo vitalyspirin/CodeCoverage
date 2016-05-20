@@ -2,6 +2,9 @@
 
 // Author: Vitaly Spirin
 
+namespace vitalyspirin\codecoverage;
+
+
 require_once('CodeCoverageFileReport.php');
 require_once('CodeCoverageTrackedFileList.php');
 
@@ -17,6 +20,15 @@ class CodeCoverage
 	{
 		self::$reportDir = $reportDir;
 		self::$userStoryFileName = "$reportDir/userstory";
+		
+	    if ( !file_exists($reportDir) )
+	    {
+			if (!mkdir($reportDir, 0777)) 
+			{
+				echo "Unable to create directory $reportDir";
+				return;
+			}
+	    }
 	}
 
 
@@ -89,8 +101,7 @@ class CodeCoverage
 
 	protected static function updateCodeCoverageReports($userStory = null)
 	{
-		$codeCoverageTrackedFileList = new CodeCoverageTrackedFileList();
-		$trackedFileList = $codeCoverageTrackedFileList->getFileList();
+		$trackedFileList = CodeCoverageTrackedFileList::$trackedFileList;
 
 
 		$xDebugInfo = xdebug_get_code_coverage();

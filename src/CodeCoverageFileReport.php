@@ -2,20 +2,15 @@
 
 // Author: Vitaly Spirin
 
+namespace vitalyspirin\codecoverage;
+
+
 class CodeCoverageFileReport
 {
+
   
   public static function create($lineDataArray, $phpFileName, $reportDir)
   {
-    if ( !file_exists($reportDir) )
-    {
-      if (!mkdir($reportDir, 0777)) 
-      {
-        echo "Unable to create directory $reportDir";
-        return;
-      }
-
-    }
 
     $reportFullFileName = self::getReportFileName($phpFileName, $reportDir);
     
@@ -36,7 +31,7 @@ class CodeCoverageFileReport
   private static function writeFile($arr, $fileName)
   {
     $stringToWrite = implode(PHP_EOL, $arr);
-    //var_dump($fileName);exit;    
+
     return file_put_contents($fileName, $stringToWrite);
   } // function writeFile
   

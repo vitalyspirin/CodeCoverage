@@ -1,6 +1,9 @@
 <?php
 
-  require_once('../src/CodeCoverage/CodeCoverageFileReport.php');
+  require_once('../src/CodeCoverageFileReport.php');
+
+  use vitalyspirin\codecoverage\CodeCoverageFileReport;
+
 
   $reportDir = dirname(__FILE__) . '/CodeCoverageReports';
   $reportWebDir = dirname($_SERVER["REQUEST_URI"]) . '/CodeCoverageReports';

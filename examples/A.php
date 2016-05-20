@@ -6,7 +6,8 @@ class A
   public function __construct()
   {
     echo "<!-- constructor for class A has been called -->";
-    if (1>2)
+    $a = 2;
+    if (1>$a)
     {
       echo "this line shouldn't have executed<br />";
     }
