@@ -29,10 +29,10 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="http://tablesorter.com/__jquery.tablesorter.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://tablesorter.com/themes/blue/style.css">
-
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.1/js/jquery.tablesorter.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.1/css/theme.blue.min.css">
+    
     <style>
       table#codeCoverageSummary { width: 50%; margin: auto;}
     </style>
@@ -40,7 +40,10 @@
     <script type="text/javascript">
       $(document).ready(function() 
         { 
-            $("#codeCoverageSummary").tablesorter( {sortList: [[1/*column*/, 1/*direction*/]]} ); 
+            $("#codeCoverageSummary").tablesorter( {
+              sortList: [[1/*column*/, 1/*direction*/]],
+              theme: 'blue',
+            } );
         } 
       ); 
     </script>
