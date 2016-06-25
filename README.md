@@ -4,7 +4,7 @@ Wrapper classes around xDebug to show code coverage data as html files.
 
 ## Installation
 ```
-composer require vitalyspirin/codecoverage @dev
+composer require vitalyspirin/codecoverage
 ```
 To generate HTML reports and see them in a table you can put file examples/reporting.php on the same level as a directory for code coverage reports. Then in a browser navigate to reporting.php.
 
