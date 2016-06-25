@@ -46,7 +46,7 @@ class CodeCoverage
 	}
 
 
-	public static function start($reportDir, $userStory = null)
+	public static function start($reportDir = null, $userStory = null)
 	{
 		if ($reportDir != null)
 		{
