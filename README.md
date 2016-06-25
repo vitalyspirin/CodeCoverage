@@ -15,11 +15,13 @@ Inside directory for code coverage reports you can create file 'userstory' with 
 use vitalyspirin\codecoverage\CodeCoverage;
 
 $reportDir = 'CodeCoverageReports';  // directory for report files 
-CodeCoverage::start($reportDir);
+CodeCoverage::deleteAllReports($reportDir); // remove this if you need cumulative coverage
+CodeCoverage::start();
 
 $a = new A();
 
 CodeCoverage::stop();
+CodeCoverage::deleteTxtReports(); // remove this if you need cumulative coverage
 ```
 
 ```php
