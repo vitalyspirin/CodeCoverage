@@ -48,7 +48,10 @@ class CodeCoverage
 
 	public static function start($reportDir, $userStory = null)
 	{
-		self::initialize($reportDir);
+		if ($reportDir != null)
+		{
+			self::initialize($reportDir);
+		}
 
 	    if (function_exists('xdebug_start_code_coverage') ) // xDebug extension has to be installed
 	    {
@@ -95,10 +98,78 @@ class CodeCoverage
 			
 			xdebug_stop_code_coverage(true); 
 		}
+		
+		self::generateHtmlReports($reportDir);
 
 	} // function stop
 
 
+	public static function generateHtmlReports($reportDir = null)
+	{
+		if ($reportDir == null) {
+			$reportDir = self::$reportDir;
+		}
+		
+		$fileList = scandir($reportDir);
+  
+		$data = array();
+		foreach($fileList as $file)
+		{
+			$fullFileName = $reportDir . "/" . $file;
+		
+			if (is_file($fullFileName) && pathinfo($file, PATHINFO_EXTENSION) == 'txt')
+			{
+			  $htmlReportFileName = CodeCoverageFileReport::convertTextReportIntoHtml($fullFileName);
+			  $data[$reportWebDir . "/" . $htmlReportFileName] = 
+			      round(CodeCoverageFileReport::getCodeCoverageSummary($fullFileName) * 100, 0);
+			}
+		}
+		
+		return $data;
+	}
+
+
+	public static function deleteTxtReports($reportDir = null)
+	{
+		self::deleteReports($reportDir, 'txt');
+	}
+	
+	
+	public static function deleteAllReports($reportDir = null)
+	{
+		self::initialize($reportDir);
+		
+		self::deleteReports($reportDir, null);
+	}
+	
+	
+	protected static function deleteReports($reportDir = null, $extension = null)
+	{
+		if ($reportDir == null) {
+			$reportDir = self::$reportDir;
+		}
+		
+		$fileList = scandir($reportDir);
+  
+		$data = array();
+		foreach($fileList as $file)
+		{
+			$fullFileName = $reportDir . "/" . $file;
+		
+			if ( is_file($fullFileName) )
+			{
+				if ( ($extension == null ) ||
+				     ($extension != null && 
+				    	pathinfo($file, PATHINFO_EXTENSION) == $extension)
+				    )
+				{
+					unlink($fullFileName);
+				}
+			}
+		}		
+	}
+	
+	
 	protected static function updateCodeCoverageReports($userStory = null)
 	{
 		$trackedFileList = CodeCoverageTrackedFileList::$trackedFileList;

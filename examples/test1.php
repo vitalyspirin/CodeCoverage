@@ -9,6 +9,7 @@ use vitalyspirin\codecoverage\CodeCoverage;
 
 $reportDir = 'CodeCoverageReports';
 
+CodeCoverage::deleteAllReports($reportDir);
 CodeCoverage::start($reportDir);
 
 require_once('A.php');
@@ -16,7 +17,7 @@ require_once('A.php');
 $a = new A();
 
 CodeCoverage::stop();
-
+CodeCoverage::deleteTxtReports();
 ?>
 
 <html>
