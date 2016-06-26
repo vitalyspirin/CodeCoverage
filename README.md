@@ -26,8 +26,8 @@ CodeCoverage::deleteTxtReports(); // remove this if you need cumulative coverage
 
 
 ```php
-CodeCoverageTrackedFileList::$trackedFileList['test2'] = [];
-CodeCoverageTrackedFileList::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/A.php');
+CodeCoverage::$trackedFileList['test2'] = [];
+CodeCoverage::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/A.php');
 
 $reportDir = 'CodeCoverageReports';  // directory for report files 
 CodeCoverage::start($reportDir, "test2"); // "test2" is used to indicate which files should be analyzed.

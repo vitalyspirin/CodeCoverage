@@ -12,8 +12,8 @@ class CodeCoverage
 {
 
 	// usage:
-	// self::$trackedFileList['test2'] = array();
-	// self::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/../../examples/A.php');
+	// CodeCoverage::$trackedFileList['test2'] = array();
+	// CodeCoverage::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/../../examples/A.php');
 	public static $trackedFileList = [];
 	
 	protected static $reportDir;
