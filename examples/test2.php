@@ -8,8 +8,8 @@ use vitalyspirin\codecoverage\CodeCoverageTrackedFileList;
 use vitalyspirin\codecoverage\CodeCoverage;
 
 
-CodeCoverageTrackedFileList::$trackedFileList['test2'] = [];
-CodeCoverageTrackedFileList::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/A.php');
+CodeCoverage::$trackedFileList['test2'] = [];
+CodeCoverage::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/A.php');
 
 $reportDir = 'CodeCoverageReports';
 

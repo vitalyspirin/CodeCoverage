@@ -6,11 +6,16 @@ namespace vitalyspirin\codecoverage;
 
 
 require_once('CodeCoverageFileReport.php');
-require_once('CodeCoverageTrackedFileList.php');
 
 
 class CodeCoverage
 {
+
+	// usage:
+	// self::$trackedFileList['test2'] = array();
+	// self::$trackedFileList['test2'][] = realpath(dirname(__FILE__) . '/../../examples/A.php');
+	public static $trackedFileList = [];
+	
 	protected static $reportDir;
 	protected static $userStoryFileName;
 	const CODE_COVERAGE_OFF = 'off';
@@ -112,7 +117,7 @@ class CodeCoverage
 		
 		$fileList = scandir($reportDir);
   
-		$data = array();
+		$data = [];
 		foreach($fileList as $file)
 		{
 			$fullFileName = $reportDir . "/" . $file;
@@ -151,7 +156,6 @@ class CodeCoverage
 		
 		$fileList = scandir($reportDir);
   
-		$data = array();
 		foreach($fileList as $file)
 		{
 			$fullFileName = $reportDir . "/" . $file;
@@ -172,7 +176,7 @@ class CodeCoverage
 	
 	protected static function updateCodeCoverageReports($userStory = null)
 	{
-		$trackedFileList = CodeCoverageTrackedFileList::$trackedFileList;
+		$trackedFileList = self::$trackedFileList;
 
 
 		$xDebugInfo = xdebug_get_code_coverage();

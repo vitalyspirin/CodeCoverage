@@ -10,7 +10,7 @@ use vitalyspirin\codecoverage\CodeCoverage;
 $reportDir = 'CodeCoverageReports';
 
 CodeCoverage::deleteAllReports($reportDir);
-CodeCoverage::start($reportDir);
+CodeCoverage::start();
 
 require_once('A.php');
 
