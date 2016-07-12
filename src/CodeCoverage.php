@@ -125,7 +125,7 @@ class CodeCoverage
 			if (is_file($fullFileName) && pathinfo($file, PATHINFO_EXTENSION) == 'txt')
 			{
 			  $htmlReportFileName = CodeCoverageFileReport::convertTextReportIntoHtml($fullFileName);
-			  $data[$reportWebDir . "/" . $htmlReportFileName] = 
+			  $data[$reportDir . "/" . $htmlReportFileName] = 
 			      round(CodeCoverageFileReport::getCodeCoverageSummary($fullFileName) * 100, 0);
 			}
 		}

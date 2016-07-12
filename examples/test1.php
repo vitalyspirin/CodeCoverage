@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <?php
-
+error_reporting(-1);
 require_once('../src/CodeCoverage.php');
 
 use vitalyspirin\codecoverage\CodeCoverage;
@@ -17,7 +17,7 @@ require_once('A.php');
 $a = new A();
 
 CodeCoverage::stop();
-CodeCoverage::deleteTxtReports();
+//CodeCoverage::deleteTxtReports();
 ?>
 
 <html>
