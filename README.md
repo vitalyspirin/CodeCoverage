@@ -37,6 +37,18 @@ $a = new A();
 CodeCoverage::stop();
 ```
 
+General way to put it into main router (index.php):
+```php
+require_once(__DIR__ . '/vendor/vitalyspirin/codecoverage/src/CodeCoverage.php');
+
+vitalyspirin\codecoverage\CodeCoverage::start(__DIR__ . '/codecoverage');
+
+register_shutdown_function(function() {
+    vitalyspirin\codecoverage\CodeCoverage::stop();
+});
+```
+
+
 ## Screenshot
 ![screenshot1.png](/docs/screenshot1.png "Code Coverage screenshot")
  
